@@ -53,7 +53,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
@@ -82,31 +82,30 @@
   </button>
 
   <main id="main-content">
-  <section class="hero">
+  <section class="hero publication-header">
     <div class="hero-body">
-      <div class="container is-max-desktop">
+      <div class="container is-max-fullhd">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles</h1>
             <!-- Authors hidden for anonymous review -->
             <div class="is-size-5 publication-authors">
-              <span class="author-block">Himanshu Gupta<sup>*</sup>,</span>
-              <span class="author-block">Paul Motter<sup>*</sup>,</span>
+              <span class="author-block">Himanshu Gupta,</span>
+              <span class="author-block">Paul Motter,</span>
               <span class="author-block">
-                <a href="https://aritra-chakrabarty.github.io/" target="_blank">Aritra Chakrabarty</a>,</span>
+                <a href="https://aritrac.com" target="_blank">Aritra Chakrabarty</a>,</span>
+              <span class="author-block">Rishabh Sodani,</span>
               <span class="author-block">Srikrishna Bangalore Raghu,</span>
-              <span class="author-block">Rishabh,</span>
               <span class="author-block">
                 <a href="https://alessandro.ronc.one" target="_blank">Alessandro Roncone</a>,</span>
               <span class="author-block">
                 <a href="https://www.bradhayes.info/" target="_blank">Bradley Hayes</a>,</span>
               <span class="author-block">
-                <a href="https://www.colorado.edu/faculty/zsunberg/" target="_blank">Zachary Sunberg</a></span>
+                <a href="https://www.cu-adcl.org/" target="_blank">Zachary Sunberg</a></span>
             </div>
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">University of Colorado Boulder</span>
-              <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
             </div>
             <div class="column has-text-centered">
               <div class="publication-links">
@@ -147,13 +146,14 @@
   </div>
 </section>
 
+<hr>
 
 <!-- Teaser image -->
 <section class="hero teaser">
-  <div class="container is-max-desktop">
+  <div class="container is-max-fullhd">
     <div class="hero-body">
-      <img src="static/images/banner.gif" alt="KiTE-Extend: Six unicycle robots navigating with prioritized planning using edge bundles" style="width: 100%; border-radius: 16px; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);">
-      <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem;">
+      <img src="static/images/banner.gif" alt="KiTE-Extend: Six unicycle robots navigating with prioritized planning using edge bundles" style="width: 100%;">
+      <h2 class="subtitle has-text-centered">
         Six unicycle robots coordinated via prioritized planning with KiTE-Extend. Edge bundles precomputed offline enable faster, higher-quality trajectory generation during online multi-robot planning.
       </h2>
     </div>
@@ -162,10 +162,10 @@
 <!-- End teaser -->
 
 <!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
+<section class="section">
+  <div class="container is-max-fullhd">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-full">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
@@ -178,12 +178,12 @@
 </section>
 <!-- End paper abstract -->
 
+<hr>
 
 <!-- Results carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Results</h2>
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Results</h2>
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <img src="static/images/carousel1.gif" alt="Five unicycle robots with centralized RRT and edge bundles" loading="lazy"/>
@@ -223,16 +223,54 @@
       </div>
     </div>
   </div>
-</div>
 </section>
 <!-- End results carousel -->
 
+<hr>
+
+<!-- Supplementary Videos -->
+<section class="section">
+  <div class="container is-max-fullhd">
+    <h2 class="title is-3 has-text-centered">Supplementary Videos</h2>
+    <div class="columns is-centered">
+      <div class="column is-half has-text-centered">
+        <video controls autoplay loop muted playsinline style="width: 100%;">
+          <source src="static/videos/soc_swap_comparison.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          pRRT vs pRRT+KiTE: 30 Second-Order Cars in Swap environment.
+        </h2>
+      </div>
+      <div class="column is-half has-text-centered">
+        <video controls autoplay loop muted playsinline style="width: 100%;">
+          <source src="static/videos/soc_cluttered_comparison.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          KCBS vs KCBS+KiTE: 30 Second-Order Cars in Large Cluttered environment.
+        </h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-half has-text-centered">
+        <video controls autoplay loop muted playsinline style="width: 100%;">
+          <source src="static/videos/di_3d_cluttered.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          KCBS+KiTE: 30 Double Integrators in 3D Large Cluttered environment.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End supplementary videos -->
+
+<hr>
 
 <!-- Method overview -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
+<section class="section">
+  <div class="container is-max-fullhd">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-full">
         <h2 class="title is-3">Method Overview</h2>
         <div class="content has-text-justified">
           <p>
@@ -251,47 +289,46 @@
 </section>
 <!-- End method overview -->
 
+<hr>
 
 <!-- Edge bundle visualization -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
+<section class="section">
+  <div class="container is-max-fullhd">
       <div class="columns is-centered">
         <div class="column is-half has-text-centered">
-          <img src="static/images/edge_bundle_viz.png" alt="Visualization of a unicycle edge bundle" style="border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); max-width: 100%;" loading="lazy"/>
-          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+          <img src="static/images/edge_bundle_viz.png" alt="Visualization of a unicycle edge bundle" style="max-width: 100%;" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
             Translation-invariant edge bundle for a unicycle robot. Each edge is a short, dynamically feasible trajectory segment generated from the workspace origin.
           </h2>
         </div>
         <div class="column is-half has-text-centered">
-          <img src="static/images/edge_bundle_diagram.png" alt="RRT search tree with edge bundle expansions" style="border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); max-width: 100%;" loading="lazy"/>
-          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+          <img src="static/images/edge_bundle_diagram.png" alt="RRT search tree with edge bundle expansions" style="max-width: 100%;" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
             RRT search tree guided by edge bundle expansions. KiTE-Extend biases tree growth toward sampled targets using precomputed motions.
           </h2>
         </div>
       </div>
-    </div>
   </div>
 </section>
 <!-- End edge bundle visualization -->
 
+<hr>
 
 <!-- Paper PDF embed -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Paper</h2>
-      <iframe src="static/pdfs/paper.pdf" width="100%" height="550" style="border-radius: 12px; border: 1px solid #e2e8f0;">
+<section class="section">
+  <div class="container is-max-fullhd">
+    <h2 class="title is-3 has-text-centered">Paper</h2>
+      <iframe src="static/pdfs/paper.pdf" width="100%" height="550">
       </iframe>
     </div>
-  </div>
 </section>
 <!-- End paper PDF -->
 
+<hr>
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
+    <div class="container is-max-fullhd content">
       <div class="bibtex-header">
         <h2 class="title">BibTeX</h2>
         <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
