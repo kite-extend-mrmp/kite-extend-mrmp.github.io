@@ -149,6 +149,14 @@
       width: min(220px, 30%);
     }
 
+    .kite-logo {
+      display: block;
+      height: 4.25rem;
+      margin: 0 auto 1rem;
+      object-fit: contain;
+      width: 4.25rem;
+    }
+
     .publication-authors {
       color: var(--muted);
       font-family: "Google Sans", "Noto Sans", sans-serif;
@@ -440,6 +448,11 @@
         font-size: 2rem;
       }
 
+      .kite-logo {
+        height: 3.4rem;
+        width: 3.4rem;
+      }
+
       .metric-grid {
         grid-template-columns: 1fr;
       }
@@ -461,6 +474,7 @@
     <section class="hero site-hero">
       <div class="hero-body">
         <div class="container is-max-widescreen has-text-centered">
+          <img class="kite-logo" src="static/images/kite_emoji.png" alt="Kite icon">
           <h1 class="title publication-title">Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles</h1>
 
           <div class="is-size-5 publication-authors">
