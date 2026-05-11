@@ -5,42 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="title" content="KiTE-Extend: Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles">
-  <meta name="description" content="KiTE-Extend accelerates multi-robot motion planning by reusing precomputed translation-invariant edge bundles for kinodynamic systems, improving success rates, computation time, and solution quality across centralized, prioritized, and conflict-based search frameworks.">
+  <meta name="description" content="KiTE-Extend accelerates multi-robot kinodynamic motion planning by replacing random local expansions with retrieved, precomputed, dynamically feasible edge bundles.">
   <meta name="keywords" content="multi-robot motion planning, MRMP, kinodynamic planning, edge bundles, sampling-based planning, conflict-based search, RRT, translation invariance, robotics">
-  <meta name="author" content="">
+  <meta name="author" content="Himanshu Gupta, Paul Motter, Aritra Chakrabarty, Rishabh Sodani, Srikrishna Bangalore Raghu, Alessandro Roncone, Bradley Hayes, Zachary Sunberg">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="KiTE-Extend">
   <meta property="og:title" content="KiTE-Extend: Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles">
-  <meta property="og:description" content="KiTE-Extend accelerates multi-robot motion planning by reusing precomputed translation-invariant edge bundles for kinodynamic systems.">
-  <meta property="article:published_time" content="2025-04-29T00:00:00.000Z">
+  <meta property="og:description" content="Planner-agnostic action selection for faster, higher-quality multi-robot kinodynamic planning.">
+  <meta property="article:published_time" content="2026-05-10T00:00:00.000Z">
   <meta property="article:section" content="Research">
   <meta property="article:tag" content="multi-robot motion planning">
   <meta property="article:tag" content="kinodynamic planning">
   <meta property="article:tag" content="edge bundles">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="KiTE-Extend: Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles">
-  <meta name="twitter:description" content="KiTE-Extend accelerates multi-robot motion planning by reusing precomputed translation-invariant edge bundles for kinodynamic systems.">
+  <meta name="twitter:title" content="KiTE-Extend: Efficient Multi-Robot Motion Planning">
+  <meta name="twitter:description" content="KiTE-Extend uses precomputed translation-invariant edge bundles to improve sampling-based MRMP planners.">
 
   <meta name="citation_title" content="Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles">
-  <!-- citation_author tags will be added after de-anonymization -->
-  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_author" content="Gupta, Himanshu">
+  <meta name="citation_author" content="Motter, Paul">
+  <meta name="citation_author" content="Chakrabarty, Aritra">
+  <meta name="citation_author" content="Sodani, Rishabh">
+  <meta name="citation_author" content="Raghu, Srikrishna Bangalore">
+  <meta name="citation_author" content="Roncone, Alessandro">
+  <meta name="citation_author" content="Hayes, Bradley">
+  <meta name="citation_author" content="Sunberg, Zachary">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_pdf_url" content="static/pdfs/paper.pdf">
 
-  <meta name="theme-color" content="#2563eb">
+  <meta name="theme-color" content="#1f4f46">
+
+  <title>KiTE-Extend: Efficient Multi-Robot Motion Planning</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-
-  <title>KiTE-Extend: Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles</title>
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -53,8 +59,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/bulma-carousel.min.js"></script>
@@ -66,279 +70,698 @@
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles",
-    "description": "KiTE-Extend accelerates multi-robot motion planning by reusing precomputed translation-invariant edge bundles for kinodynamic systems, improving success rates, computation time, and solution quality.",
-    "author": [],
-    "datePublished": "2025",
-    "url": "",
+    "description": "KiTE-Extend accelerates multi-robot kinodynamic motion planning by replacing random local expansions with retrieved, precomputed, dynamically feasible edge bundles.",
+    "author": [
+      {"@type": "Person", "name": "Himanshu Gupta"},
+      {"@type": "Person", "name": "Paul Motter"},
+      {"@type": "Person", "name": "Aritra Chakrabarty"},
+      {"@type": "Person", "name": "Rishabh Sodani"},
+      {"@type": "Person", "name": "Srikrishna Bangalore Raghu"},
+      {"@type": "Person", "name": "Alessandro Roncone"},
+      {"@type": "Person", "name": "Bradley Hayes"},
+      {"@type": "Person", "name": "Zachary Sunberg"}
+    ],
+    "datePublished": "2026",
+    "url": "https://kite-extend-mrmp.github.io/",
     "keywords": ["multi-robot motion planning", "kinodynamic planning", "edge bundles", "sampling-based planning", "conflict-based search"],
     "isAccessibleForFree": true
   }
   </script>
+
+  <style>
+    :root {
+      --ink: #16201d;
+      --muted: #52615c;
+      --line: #d8e1dc;
+      --paper: #f7faf8;
+      --panel: #ffffff;
+      --green: #1f4f46;
+      --green-2: #2f7d6e;
+      --gold: #c59031;
+      --blue: #2860a8;
+      --red: #a8463f;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--ink);
+      font-family: "Noto Sans", sans-serif;
+      background: #ffffff;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    .site-hero {
+      background:
+        linear-gradient(180deg, rgba(247, 250, 248, 0.96), rgba(247, 250, 248, 0.88)),
+        radial-gradient(circle at 14% 22%, rgba(197, 144, 49, 0.12), transparent 36%),
+        radial-gradient(circle at 86% 8%, rgba(47, 125, 110, 0.13), transparent 32%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .publication-title {
+      font-family: "Google Sans", "Noto Sans", sans-serif;
+      font-size: 3rem;
+      letter-spacing: 0;
+      line-height: 1.05;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1120px;
+    }
+
+    .publication-authors {
+      color: var(--muted);
+      font-family: "Google Sans", "Noto Sans", sans-serif;
+      margin-top: 0.75rem;
+    }
+
+    .author-block {
+      display: inline-block;
+    }
+
+    .link-block a {
+      margin: 0.35rem 0.2rem;
+    }
+
+    .button.is-kite {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .button.is-kite:hover {
+      background: #183e37;
+      border-color: #183e37;
+      color: #fff;
+    }
+
+    .takeaway {
+      color: #2d3935;
+      font-size: 1.18rem;
+      line-height: 1.55;
+      margin: 1.35rem auto 0;
+      max-width: 880px;
+    }
+
+    .teaser-video,
+    .media-frame img,
+    .media-frame video {
+      background: #edf2ef;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 18px 50px rgba(22, 32, 29, 0.10);
+      display: block;
+      width: 100%;
+    }
+
+    .section-kite {
+      padding: 4rem 1.5rem;
+    }
+
+    .section-kite.is-soft {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      border-top: 1px solid var(--line);
+    }
+
+    .section-eyebrow {
+      color: var(--green-2);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-family: "Google Sans", "Noto Sans", sans-serif;
+      font-size: clamp(1.7rem, 3vw, 2.25rem);
+      line-height: 1.12;
+      margin-bottom: 1rem;
+    }
+
+    .section-lede {
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.62;
+      max-width: 820px;
+    }
+
+    .metric-grid,
+    .idea-grid,
+    .paradigm-grid,
+    .figure-pair {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .metric-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .idea-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .paradigm-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .figure-pair {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .figure-pair img {
+      background: #000;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: block;
+      width: 100%;
+    }
+
+    .result-card,
+    .idea-card,
+    .paradigm-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      height: 100%;
+      padding: 1.15rem;
+    }
+
+    .result-card strong {
+      color: var(--green);
+      display: block;
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-bottom: 0.45rem;
+    }
+
+    .result-card span,
+    .idea-card span,
+    .paradigm-card span {
+      color: var(--muted);
+      display: block;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .idea-step {
+      align-items: center;
+      background: #e8f1ed;
+      border-radius: 999px;
+      color: var(--green);
+      display: inline-flex;
+      font-weight: 700;
+      height: 2rem;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+      width: 2rem;
+    }
+
+    .card-title {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+    }
+
+    .contribution-list {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 1.25rem;
+    }
+
+    .contribution-list li {
+      background: #fff;
+      border-left: 4px solid var(--green-2);
+      border-radius: 6px;
+      box-shadow: 0 1px 0 rgba(22, 32, 29, 0.05);
+      list-style: none;
+      padding: 0.85rem 1rem;
+    }
+
+    .contribution-list ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .comparison-note {
+      background: #fff8eb;
+      border: 1px solid #ead5aa;
+      border-radius: 8px;
+      color: #5c4a26;
+      line-height: 1.55;
+      margin-top: 1.25rem;
+      padding: 1rem 1.15rem;
+    }
+
+    .video-caption,
+    .image-caption {
+      color: var(--muted);
+      font-family: "Noto Sans", sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.45;
+      margin-top: 0.75rem;
+    }
+
+    .video-comparison-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .video-comparison {
+      border-top: 1px solid var(--line);
+      padding-top: 1.5rem;
+    }
+
+    .video-comparison:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .video-comparison h3 {
+      font-family: "Google Sans", "Noto Sans", sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .video-pair {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .video-panel strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .video-panel video {
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: block;
+      object-fit: contain;
+      width: 100%;
+    }
+
+    .paper-frame {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 560px;
+      width: 100%;
+    }
+
+    pre {
+      background: #f0f4f2;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: #1f2925;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    .footer {
+      background: #f0f4f2;
+      color: var(--muted);
+    }
+
+    @media screen and (max-width: 1023px) {
+      .publication-title {
+        font-size: 2.45rem;
+        max-width: 820px;
+      }
+
+      .metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .idea-grid,
+      .paradigm-grid,
+      .figure-pair,
+      .video-pair,
+      .contribution-list {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media screen and (max-width: 640px) {
+      .publication-title {
+        font-size: 2rem;
+      }
+
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-body {
+        padding: 2.5rem 1.25rem;
+      }
+
+      .section-kite {
+        padding: 3rem 1rem;
+      }
+
+    }
+  </style>
 </head>
+
 <body>
-
   <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles</h1>
-            <!-- Authors hidden for anonymous review -->
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Himanshu Gupta,</span>
-              <span class="author-block">Paul Motter,</span>
-              <span class="author-block">
-                <a href="https://aritrac.com" target="_blank">Aritra Chakrabarty</a>,</span>
-              <span class="author-block">Rishabh Sodani,</span>
-              <span class="author-block">Srikrishna Bangalore Raghu,</span>
-              <span class="author-block">
-                <a href="https://alessandro.ronc.one" target="_blank">Alessandro Roncone</a>,</span>
-              <span class="author-block">
-                <a href="https://www.bradhayes.info/" target="_blank">Bradley Hayes</a>,</span>
-              <span class="author-block">
-                <a href="https://www.cu-adcl.org/" target="_blank">Zachary Sunberg</a></span>
-            </div>
+    <section class="hero site-hero">
+      <div class="hero-body">
+        <div class="container is-max-widescreen has-text-centered">
+          <h1 class="title publication-title">Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles</h1>
 
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">University of Colorado Boulder</span>
-            </div>
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <span class="link-block">
-                  <a href="static/pdfs/paper.pdf" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Himanshu Gupta,</span>
+            <span class="author-block">Paul Motter,</span>
+            <span class="author-block">Aritra Chakrabarty,</span>
+            <span class="author-block">Rishabh Sodani,</span>
+            <span class="author-block">Srikrishna Bangalore Raghu,</span>
+            <span class="author-block">Alessandro Roncone,</span>
+            <span class="author-block">Bradley Hayes,</span>
+            <span class="author-block">Zachary Sunberg</span>
+          </div>
 
-              <!-- <span class="link-block">
-                <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="ai ai-arxiv"></i>
-                </span>
-                <span>arXiv</span>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Colorado Boulder</span>
+          </div>
+
+          <div class="publication-links mt-4">
+            <span class="link-block">
+              <a href="static/pdfs/paper.pdf" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-kite">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
               </a>
-            </span> -->
-
-              <!-- <span class="link-block">
-                <a href="https://github.com/" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>Code (coming soon)</span>
+            </span>
+            <span class="link-block">
+              <a href="#BibTeX" class="external-link button is-normal is-rounded is-light">
+                <span class="icon"><i class="fas fa-quote-right"></i></span>
+                <span>BibTeX</span>
               </a>
-            </span> -->
-            </div>
+            </span>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Teaser image -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="static/images/banner.gif" alt="KiTE-Extend: Six unicycle robots navigating with prioritized planning using edge bundles" style="width: 100%;">
-      <h2 class="subtitle has-text-centered">
-        Six unicycle robots coordinated via prioritized planning with KiTE-Extend. Edge bundles precomputed offline enable faster, higher-quality trajectory generation during online multi-robot planning.
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+    <section class="section-kite is-soft">
+      <div class="container is-max-desktop">
+        <p class="section-eyebrow">Abstract</p>
+        <div class="content">
           <p>
             Solving multi-robot motion planning (MRMP) requires generating collision-free kinodynamically feasible trajectories for multiple interacting robots. We introduce Kinodynamic Translation-Invariant Edge Bundles or KiTE-Extend, a planner-agnostic action selection mechanism for sampling-based kinodynamic motion planning. KiTE-Extend uses a library of trajectory segments computed offline to guide action selection during online planning, improving the ability of existing planners to identify feasible motion segments without altering state propagation, collision checking, or cost evaluation, and without changing their theoretical guarantees. While KiTE-Extend can modestly improve single-agent planners, its benefits are most clear in the multi-agent setting, where it is able to explore more effectively and significantly improve planning through the dense spatiotemporal constraints introduced by robot-robot interaction. Through experiments on multiple kinodynamic systems and environments, we show that KiTE-Extend reduces planning time and improves scalability across the three most common MRMP paradigms: centralized, prioritized, and conflict-based.
           </p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+    </section>
 
-<!-- Results carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-    <h2 class="title is-3 has-text-centered">Results</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <img src="static/images/carousel1.gif" alt="Five unicycle robots with centralized RRT and edge bundles" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          cRRT+KiTE: Five unicycle robots, centralized joint-state planning with edge bundles.
-        </h2>
+    <section class="section-kite">
+      <div class="container is-max-widescreen">
+        <div class="figure-pair">
+          <img src="static/images/edge_bundle_selection_1.png" alt="KiTE-Extend ranks edge-bundle candidates and skips invalid motions near a static obstacle">
+          <img src="static/images/edge_bundle_selection_2.png" alt="KiTE-Extend selects a safe edge-bundle candidate under dynamic agent collision constraints">
+        </div>
+        <p class="image-caption">
+          Fig. 2 from the paper. KiTE-Extend ranks precomputed dynamically feasible trajectory segments by endpoint distance to the sampled state and tries them in order. Left: invalid edges are skipped when they collide with static obstacles. Right: under agent collision constraints, the same mechanism selects a safe alternative, including low-velocity or wait-like motions when needed.
+        </p>
       </div>
-      <div class="item">
-        <img src="static/images/carousel2.gif" alt="Five unicycle robots with KCBS" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          KCBS+KiTE: Five unicycle robots coordinated via conflict-based search.
-        </h2>
-      </div>
-      <div class="item">
-        <img src="static/images/carousel3.gif" alt="Six second-order car robots with prioritized planning" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          pRRT+KiTE: Six second-order car robots with prioritized planning.
-        </h2>
-      </div>
-      <div class="item">
-        <img src="static/images/carousel4.gif" alt="Second-order car robots in narrow corridor environment" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          KCBS+KiTE: Second-order car robots navigating a narrow corridor.
-        </h2>
-      </div>
-      <div class="item">
-        <img src="static/images/carousel5.gif" alt="Six second-order car robots with KCBS" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          KCBS+KiTE: Six second-order car robots with conflict-based search.
-        </h2>
-      </div>
-      <div class="item">
-        <img src="static/images/carousel6.gif" alt="Six unicycle robots with prioritized KiTE planning" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          pRRT+KiTE: Six unicycle robots with prioritized planning and KiTE-Extend.
-        </h2>
-      </div>
-    </div>
-  </div>
-  </div>
-</section>
-<!-- End results carousel -->
+    </section>
 
-<!-- Supplementary Videos -->
-<section class="section hero is-small">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Supplementary Videos</h2>
-    <div class="columns is-centered">
-      <div class="column is-half has-text-centered">
-        <video controls autoplay loop muted playsinline style="width: 100%;">
-          <source src="static/videos/soc_swap_comparison.mp4" type="video/mp4">
-        </video>
-        <h2 class="subtitle has-text-centered">
-          pRRT vs pRRT+KiTE: 30 Second-Order Cars in Swap environment.
-        </h2>
-      </div>
-      <div class="column is-half has-text-centered">
-        <video controls autoplay loop muted playsinline style="width: 100%;">
-          <source src="static/videos/soc_cluttered_comparison.mp4" type="video/mp4">
-        </video>
-        <h2 class="subtitle has-text-centered">
-          KCBS vs KCBS+KiTE: 30 Second-Order Cars in Large Cluttered environment.
-        </h2>
-      </div>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-half has-text-centered">
-        <video controls autoplay loop muted playsinline style="width: 100%;">
-          <source src="static/videos/di_3d_cluttered.mp4" type="video/mp4">
-        </video>
-        <h2 class="subtitle has-text-centered">
-          KCBS+KiTE: 30 Double Integrators in 3D Large Cluttered environment.
-        </h2>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End supplementary videos -->
+    <section class="section-kite is-soft">
+      <div class="container is-max-desktop">
+        <p class="section-eyebrow">Key idea</p>
+        <h2 class="section-title">Turn local expansion into retrieval and ranking.</h2>
+        <p class="section-lede">
+          Sampling-based kinodynamic planners spend much of their time trying local control rollouts that collide, violate constraints, or make little progress. KiTE-Extend keeps the planner unchanged, but replaces naive random action selection with reusable candidate motions computed offline.
+        </p>
 
-<!-- Method overview -->
-<section class="section hero is-small">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">Method Overview</h2>
-        <div class="content has-text-justified">
-          <p>
-            KiTE-Extend is built around a library of short, dynamically feasible motion segments called <strong>edge bundles</strong>, generated offline and reused during planning. Each edge corresponds to rolling out the system dynamics under a constant control input for a finite duration, producing a short trajectory segment and its terminal state. For translation-invariant systems, edges are generated from origin start states, allowing the same library to be reused across the workspace independent of the environment geometry.
-          </p>
-          <p>
-            During online planning, KiTE-Extend replaces naive random control sampling with a ranked retrieval from the edge bundle. Given an expansion state and a sampled target, it retrieves and ranks candidate motions by proximity to the target, then re-propagates and validates them under the current spatiotemporal constraints. If no candidate succeeds, KiTE-Extend falls back to the baseline random extension to preserve exploration.
-          </p>
-          <p>
-            KiTE-Extend integrates into three representative MRMP paradigms&mdash;<strong>centralized</strong> (cRRT), <strong>prioritized</strong> (pRRT), and <strong>conflict-based search</strong> (KCBS)&mdash;without modifying the underlying planner's dynamics, collision model, or theoretical guarantees.
-          </p>
+        <div class="idea-grid">
+          <div class="idea-card">
+            <div class="idea-step">1</div>
+            <strong class="card-title">Precompute feasible edges</strong>
+            <span>Generate short dynamically feasible trajectory segments once per robot model from translation-normalized start states.</span>
+          </div>
+          <div class="idea-card">
+            <div class="idea-step">2</div>
+            <strong class="card-title">Retrieve local candidates</strong>
+            <span>At each tree expansion, query edge bundles whose translation-invariant state components match the current node.</span>
+          </div>
+          <div class="idea-card">
+            <div class="idea-step">3</div>
+            <strong class="card-title">Rank, propagate, validate</strong>
+            <span>Try candidates that make progress toward the sampled target, re-propagate them online, and fall back to random expansion when needed.</span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End method overview -->
+    </section>
 
-<!-- Edge bundle visualization -->
-<section class="hero is-small">
-  <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-half has-text-centered">
-          <img src="static/images/edge_bundle_viz.png" alt="Visualization of a unicycle edge bundle" style="max-width: 100%;" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">
-            Translation-invariant edge bundle for a unicycle robot. Each edge is a short, dynamically feasible trajectory segment generated from the workspace origin.
-          </h2>
-        </div>
-        <div class="column is-half has-text-centered">
-          <img src="static/images/edge_bundle_diagram.png" alt="RRT search tree with edge bundle expansions" style="max-width: 100%;" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">
-            RRT search tree guided by edge bundle expansions. KiTE-Extend biases tree growth toward sampled targets using precomputed motions.
-          </h2>
+    <section class="section-kite">
+      <div class="container is-max-desktop">
+        <p class="section-eyebrow">At a glance</p>
+        <h2 class="section-title">What KiTE-Extend contributes</h2>
+        <div class="content">
+          <ul class="contribution-list">
+            <li><strong>Planner-agnostic action selection.</strong> KiTE-Extend plugs into sampling-based kinodynamic planners at the local expansion step.</li>
+            <li><strong>Offline reuse without discretizing the search space.</strong> Edge bundles guide expansion, but planning remains continuous and sampling-based.</li>
+            <li><strong>Guarantee-preserving fallback.</strong> Candidate edges are validated online, and random expansion remains available to preserve exploration.</li>
+            <li><strong>Multi-robot impact.</strong> The same primitive improves centralized RRT, prioritized RRT, and conflict-based search across several robot models.</li>
+          </ul>
         </div>
       </div>
-  </div>
-</section>
-<!-- End edge bundle visualization -->
+    </section>
 
-<!-- Paper PDF embed -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Paper</h2>
-      <iframe src="static/pdfs/paper.pdf" width="100%" height="550">
-      </iframe>
-    </div>
-</section>
-<!-- End paper PDF -->
+    <section class="section-kite is-soft">
+      <div class="container is-max-desktop">
+        <p class="section-eyebrow">Results summary</p>
+        <h2 class="section-title">Faster planning, better scalability, shorter trajectories.</h2>
+        <p class="section-lede">
+          Experiments use 100 trials per setting with a 300 second runtime budget, comparing baseline planners against their KiTE-Extend variants for unicycle, second-order car, and double-integrator systems.
+        </p>
 
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre id="bibtex-code"><code>@article{kiteextend2025,
+        <div class="metric-grid">
+          <div class="result-card">
+            <strong>4.2x</strong>
+            <span>Mean computation-time reduction for pRRT+KiTE across representative settings with comparable success rates.</span>
+          </div>
+          <div class="result-card">
+            <strong>40-60%</strong>
+            <span>Lower total path duration for cRRT+KiTE on trials where both baseline and KiTE variants succeed.</span>
+          </div>
+          <div class="result-card">
+            <strong>20-30%</strong>
+            <span>Lower total path duration for pRRT+KiTE and KCBS+KiTE in evaluated settings.</span>
+          </div>
+          <div class="result-card">
+            <strong>5-10 s</strong>
+            <span>Approximate one-time edge-bundle generation cost per kinodynamic system, excluded from online runtimes.</span>
+          </div>
+        </div>
+
+        <div class="comparison-note">
+          KiTE-Extend is especially useful in MRMP because robot-robot constraints make repeated low-level expansion expensive. KCBS benefits strongly because every high-level conflict update can trigger low-level replanning.
+        </div>
+      </div>
+    </section>
+
+    <section class="section-kite">
+      <div class="container is-max-desktop">
+        <p class="section-eyebrow">Where it helps</p>
+        <h2 class="section-title">One expansion primitive, three MRMP paradigms.</h2>
+
+        <div class="paradigm-grid">
+          <div class="paradigm-card">
+            <strong class="card-title">Centralized RRT</strong>
+            <span>KiTE-Extend mainly improves feasibility and scalability by making productive joint-state expansions more likely as team size grows.</span>
+          </div>
+          <div class="paradigm-card">
+            <strong class="card-title">Prioritized RRT</strong>
+            <span>KiTE-Extend reduces per-agent planning time and path duration, while priority ordering still determines some hard failures.</span>
+          </div>
+          <div class="paradigm-card">
+            <strong class="card-title">KCBS</strong>
+            <span>KiTE-Extend accelerates repeated low-level replanning and naturally proposes wait-like or recovery motions under spatiotemporal constraints.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-kite is-soft" id="video-comparisons">
+      <div class="container is-max-widescreen">
+        <p class="section-eyebrow has-text-centered">Video comparisons</p>
+        <h2 class="section-title has-text-centered">Baseline planners vs. KiTE-Extend variants.</h2>
+        <p class="section-lede has-text-centered" style="margin-left: auto; margin-right: auto;">
+          Each row compares the baseline planner with the corresponding KiTE-Extend variant for the same environment. All videos autoplay muted at 2x speed.
+        </p>
+
+        <div class="video-comparison-grid">
+          <div class="video-comparison">
+            <h3>pRRT comparison: 30 robots, Swap environment</h3>
+            <div class="video-pair">
+              <div class="video-panel">
+                <strong>pRRT baseline</strong>
+                <video controls autoplay loop muted playsinline preload="auto">
+                  <source src="static/videos/web/prrt_30_robots_swap_env.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video-panel">
+                <strong>pRRT + KiTE-Extend</strong>
+                <video controls autoplay loop muted playsinline preload="auto">
+                  <source src="static/videos/web/prrt_kite_30_robots_swap_env.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-comparison">
+            <h3>KCBS comparison: 18 robots, Small Cluttered environment</h3>
+            <div class="video-pair">
+              <div class="video-panel">
+                <strong>KCBS baseline</strong>
+                <video controls autoplay loop muted playsinline preload="auto">
+                  <source src="static/videos/web/kcbs_18_robots_small_cluttered_env.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video-panel">
+                <strong>KCBS + KiTE-Extend</strong>
+                <video controls autoplay loop muted playsinline preload="auto">
+                  <source src="static/videos/web/kcbs_kite_18_robots_small_cluttered_env.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-comparison">
+            <h3>KCBS comparison: 30 robots, Large Cluttered environment</h3>
+            <div class="video-pair">
+              <div class="video-panel">
+                <strong>KCBS baseline</strong>
+                <video controls autoplay loop muted playsinline preload="auto">
+                  <source src="static/videos/web/kcbs_30_robots_large_cluttered_env.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video-panel">
+                <strong>KCBS + KiTE-Extend</strong>
+                <video controls autoplay loop muted playsinline preload="auto">
+                  <source src="static/videos/web/kcbs_kite_30_robots_large_cluttered_env.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-comparison">
+            <h3>KCBS comparison: 30 robots, Large Cluttered 3D environment</h3>
+            <div class="video-pair">
+              <div class="video-panel">
+                <strong>KCBS baseline</strong>
+                <video controls autoplay loop muted playsinline preload="auto">
+                  <source src="static/videos/web/kcbs_30_robots_large_cluttered_3d_env.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="video-panel">
+                <strong>KCBS + KiTE-Extend</strong>
+                <video controls autoplay loop muted playsinline preload="auto">
+                  <source src="static/videos/web/kcbs_kite_30_robots_large_cluttered_3d_env.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section-kite" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="section-title">BibTeX</h2>
+        <pre><code>@article{gupta2026kiteextend,
   title={Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles},
-  author={Anonymous},
-  year={2025}
+  author={Gupta, Himanshu and Motter, Paul and Chakrabarty, Aritra and Sodani, Rishabh and Raghu, Srikrishna Bangalore and Roncone, Alessandro and Hayes, Bradley and Sunberg, Zachary},
+  year={2026}
 }</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
+      </div>
+    </section>
 
+    <section class="section-kite is-soft">
+      <div class="container is-max-desktop">
+        <div class="level">
+          <div class="level-left">
+            <div>
+              <p class="section-eyebrow">Paper</p>
+              <h2 class="section-title">Read the full paper</h2>
+            </div>
+          </div>
+          <div class="level-right">
+            <a href="static/pdfs/paper.pdf" target="_blank" rel="noopener" class="button is-kite is-rounded">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span>
+              <span>Open PDF</span>
+            </a>
+          </div>
+        </div>
+        <iframe class="paper-frame" src="static/pdfs/paper.pdf" title="KiTE-Extend paper PDF"></iframe>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>, adapted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-  </body>
+  <script>
+    const videos = Array.from(document.querySelectorAll("video"));
+
+    videos.forEach((video) => {
+      const setFastPlayback = () => {
+        video.defaultPlaybackRate = 2.0;
+        video.playbackRate = 2.0;
+      };
+
+      video.muted = true;
+      setFastPlayback();
+      video.addEventListener("loadedmetadata", setFastPlayback);
+      video.addEventListener("play", setFastPlayback);
+    });
+
+    const startVideosTogether = () => {
+      videos.forEach((video) => {
+        try {
+          video.currentTime = 0;
+        } catch (_) {
+          // Metadata may not be available yet; playback still starts at the beginning.
+        }
+        video.play().catch(() => {
+          // Some browsers defer autoplay until the video is near the viewport.
+        });
+      });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", startVideosTogether);
+    } else {
+      startVideosTogether();
+    }
+  </script>
+</body>
 </html>
