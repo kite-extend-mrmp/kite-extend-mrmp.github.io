@@ -131,13 +131,32 @@
       line-height: 1.05;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: 1.35rem;
       max-width: 1120px;
+      padding-bottom: 1.1rem;
+      position: relative;
+    }
+
+    .publication-title::after {
+      background: var(--green-2);
+      border-radius: 999px;
+      bottom: 0;
+      content: "";
+      height: 3px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      width: min(220px, 30%);
     }
 
     .publication-authors {
       color: var(--muted);
       font-family: "Google Sans", "Noto Sans", sans-serif;
       margin-top: 0.75rem;
+    }
+
+    .author-line + .author-line {
+      margin-top: 0.25rem;
     }
 
     .author-block {
@@ -445,14 +464,18 @@
           <h1 class="title publication-title">Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles</h1>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Himanshu Gupta,</span>
-            <span class="author-block">Paul Motter,</span>
-            <span class="author-block">Aritra Chakrabarty,</span>
-            <span class="author-block">Rishabh Sodani,</span>
-            <span class="author-block">Srikrishna Bangalore Raghu,</span>
-            <span class="author-block">Alessandro Roncone,</span>
-            <span class="author-block">Bradley Hayes,</span>
-            <span class="author-block">Zachary Sunberg</span>
+            <div class="author-line">
+              <span class="author-block">Himanshu Gupta,</span>
+              <span class="author-block">Paul Motter,</span>
+              <span class="author-block">Aritra Chakrabarty,</span>
+              <span class="author-block">Rishabh Sodani,</span>
+              <span class="author-block">Srikrishna Bangalore Raghu,</span>
+            </div>
+            <div class="author-line">
+              <span class="author-block">Alessandro Roncone,</span>
+              <span class="author-block">Bradley Hayes,</span>
+              <span class="author-block">Zachary Sunberg</span>
+            </div>
           </div>
 
           <div class="is-size-5 publication-authors">
